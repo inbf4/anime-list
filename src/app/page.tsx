@@ -71,14 +71,14 @@ export default function Home() {
         </div>
         {animeList && (
           <Tabs value={effectiveTab} onValueChange={setActiveTab}>
-            <div className='flex flex-col sm:flex-row gap-4'>
+            <div className='mb-4 flex flex-col-reverse md:flex-row gap-4'>
               <Input
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className='sm:max-w-xs'
+                className='md:max-w-xs'
                 placeholder='Search'
               />
-              <TabsList className='h-auto flex-col sm:h-10 sm:flex-row mb-4'>
+              <TabsList className='h-auto flex-col sm:h-10 sm:flex-row'>
                 <TabsTrigger
                   value='All'
                   className='w-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground'
@@ -102,7 +102,7 @@ export default function Home() {
                 : `${effectiveTab} (${currentTabAnimes.length})`}
             </h2>
             <TabsContent value='All'>
-              <div className='grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
+              <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
                 {allAnimes.map((anime, index) => (
                   <AnimeCard key={index} anime={anime} />
                 ))}
@@ -110,7 +110,7 @@ export default function Home() {
             </TabsContent>
             {Object.entries(filteredAnimeList || {}).map(([status, animes]) => (
               <TabsContent key={status} value={status}>
-                <div className='grid grid-cols-1 sm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
+                <div className='grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4'>
                   {animes.map((anime, index) => (
                     <AnimeCard key={index} anime={anime} />
                   ))}
