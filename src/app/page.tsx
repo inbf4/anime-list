@@ -65,7 +65,7 @@ export default function Home() {
     <div className='min-h-screen p-4 sm:p-12'>
       <div className='max-w-screen-xl mx-auto'>
         <h1 className='text-3xl font-bold mb-8'>Aniwave List</h1>
-        <div className='mb-8'>
+        <div className='mb-8 space-y-2'>
           <Label htmlFor='json-file'>Upload your JSON file</Label>
           <Input id='json-file' type='file' onChange={handleFileUpload} accept='.json' />
         </div>
